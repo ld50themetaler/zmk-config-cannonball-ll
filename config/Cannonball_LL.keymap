@@ -49,6 +49,18 @@
             tapping-term-ms = <200>;
             bindings = <&mo>, <&mkp>;
         };
+
+        // トラックボール CPI サイクル切り替え (400 -> 600 -> 900 -> 1200 -> 1600 -> 2100 -> 2800)
+        dpi_cycle: dpi_cycle {
+            compatible = "zmk,behavior-sensor-attr-cycle";
+            #binding-cells = <1>;
+            sensor_device = <&trackball>;
+            values = <400 600 900 1200 1600 2100 2800>;
+            attr = <0>; // PMW3610_ATTR_CPI
+            persistant;
+            save_delay = <2000>;
+            load_delay = <1000>;
+        };
     };
 
     /* キーマップ */
@@ -85,13 +97,13 @@
             sensor-bindings = <&rot_kp LC(MINUS) LC(PLUS)>, <&scroll_move_y>, <&scroll_move_x>;
         };
 
-        // SETTINGS レイヤー (トラックボールスクロール & BLE設定)
+        // SETTINGS レイヤー (トラックボールスクロール & BLE設定 & CPI設定)
         SETTINGS {
             bindings = <
                 // Keys
                 &bt BT_NXT      &trans          &trans          &none
                 &bt BT_CLR      &trans          &trans          &none
-                &bt BT_PRV      &trans          &trans          &none
+                &bt BT_PRV      &dpi_cycle (-1) &dpi_cycle 1    &none
 
                 // Mouse
                 &trans          &trans
@@ -103,8 +115,8 @@
                 &trans          &trans          &trans
                 &trans          &trans          &trans
 
-                // Side
-                &trans          &trans          &trans          &trans
+                // Side (Upper-left: CPI+, Lower-left: CPI-)
+                &dpi_cycle 1    &dpi_cycle (-1) &trans          &trans
 
                 // Back
                 &bt BT_CLR_ALL  &bt BT_CLR

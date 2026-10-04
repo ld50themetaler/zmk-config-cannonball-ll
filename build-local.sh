@@ -31,10 +31,10 @@ git config --global --add safe.directory "*"
 
 echo "==> Building firmware for Cannonball LL on seeeduino_xiao_ble..."
 west build -p always -s /workspace/zmk-workspace/zmk/app -d /workspace/zmk-config/build/cannonball_ll -b seeeduino_xiao_ble -S studio-rpc-usb-uart -- \
-    -DSHIELD="Cannonball_LL rgbled_adapter" \
+    -DSHIELD="Cannonball_LL" \
     -DBOARD_ROOT=/workspace/zmk-config \
     -DZMK_CONFIG=/workspace/zmk-config/config \
-    -DZMK_EXTRA_MODULES="/workspace/zmk-config;/workspace/zmk-workspace/zmk-pmw3610-driver;/workspace/zmk-workspace/zmk-rgbled-widget;/workspace/zmk-workspace/prospector-zmk-module" \
+    -DZMK_EXTRA_MODULES="/workspace/zmk-config;/workspace/zmk-workspace/zmk-pmw3610-driver;/workspace/zmk-workspace/prospector-zmk-module;/workspace/zmk-workspace/zmk-behavior-sensor-attr-cycle" \
     -DZEPHYR_BASE=/workspace/zmk-workspace/zephyr
 
 mkdir -p /workspace/zmk-config/build/artifacts
