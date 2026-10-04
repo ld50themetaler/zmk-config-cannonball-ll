@@ -34,7 +34,7 @@ west build -p always -s /workspace/zmk-workspace/zmk/app -d /workspace/zmk-confi
     -DSHIELD="Cannonball_LL" \
     -DBOARD_ROOT=/workspace/zmk-config \
     -DZMK_CONFIG=/workspace/zmk-config/config \
-    -DZMK_EXTRA_MODULES="/workspace/zmk-config;/workspace/zmk-workspace/zmk-pmw3610-driver;/workspace/zmk-workspace/prospector-zmk-module;/workspace/zmk-workspace/zmk-behavior-sensor-attr-cycle" \
+    -DZMK_EXTRA_MODULES="/workspace/zmk-config;/workspace/zmk-workspace/zmk-pmw3610-driver;/workspace/zmk-workspace/prospector-zmk-module;/workspace/zmk-workspace/zmk-behavior-sensor-attr-cycle;/workspace/zmk-workspace/zmk-feature-cdc-acm-bootloader-trigger" \
     -DZEPHYR_BASE=/workspace/zmk-workspace/zephyr
 
 mkdir -p /workspace/zmk-config/build/artifacts

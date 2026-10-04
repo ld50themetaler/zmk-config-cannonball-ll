@@ -10,6 +10,8 @@ manifest:
       url-base: https://github.com/t-ogura
     - name: george-norton
       url-base: https://github.com/george-norton
+    - name: sekigon-gonnoc
+      url-base: https://github.com/sekigon-gonnoc
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -19,15 +21,14 @@ manifest:
       remote: badjeff
       # zmk-0.3 branch: main moved to Zephyr 4.1 (ZMK 0.4) and renamed its Kconfig symbols
       revision: 5c5af40de4d8cdf55dc63c4c5907af1e52da6a95
-    - name: zmk-rgbled-widget
-      remote: caksoylar
-      # v0.3-branch: main dropped the shims for ZMK before 0.4
-      revision: 8756cb7b8114069fa3c25c6f6c990f24988fceff
     - name: prospector-zmk-module
       remote: prospector
       revision: v2.2.3
     - name: zmk-behavior-sensor-attr-cycle
       remote: george-norton
       revision: main
+    - name: zmk-feature-cdc-acm-bootloader-trigger
+      remote: sekigon-gonnoc
+      revision: v0.2
   self:
     path: config
