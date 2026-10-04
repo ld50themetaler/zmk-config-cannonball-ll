@@ -6,6 +6,8 @@ manifest:
       url-base: https://github.com/badjeff
     - name: caksoylar
       url-base: https://github.com/caksoylar
+    - name: prospector
+      url-base: https://github.com/t-ogura
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -19,5 +21,8 @@ manifest:
       remote: caksoylar
       # v0.3-branch: main dropped the shims for ZMK before 0.4
       revision: 8756cb7b8114069fa3c25c6f6c990f24988fceff
+    - name: prospector-zmk-module
+      remote: prospector
+      revision: v2.2.3
   self:
     path: config
